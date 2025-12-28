@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) 2025 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include "../app.overlay"
+#include "common/dis_pwm_leds.dtsi"
+#include "common/ena_gpio_leds.dtsi"
+
+/ {
+	cannectivity: cannectivity {
+		compatible = "cannectivity";
+		timestamp-counter = <&timer0>;
+
+		channel0 {
+			compatible = "cannectivity-channel";
+			can-controller = <&can0>;
+			state-led = <&led0>;
+		};
+	};
+};
+
+&timer0 {
+	status = "okay";
+};
